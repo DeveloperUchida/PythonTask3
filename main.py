@@ -41,14 +41,20 @@ b = [
     [4, 1, 1, 2, 1, 5, 2, 3, 5, 5, 4, 3, 1, 4, 3, 1, 3, 2, 0, 4, 0, 2, 1, 0, 4],
 ]
 
-for y in range(40):
-    for x in range(25 - 5):
+for y in range(35):
+    for x in range(25):
         result = True
-        for t in [1, 2, 3, 4, 5]:  # 修正された部分
-            if t in b[y][x: x + 5]:
-                if x == b[y][x] or x == b[y][x] or x == b[y][x] or x == b[y][x]:
-                    pass
-                else:
-                    result = False
+        for t in [1, 2, 3, 4, 5]:
+            if (
+                    t == b[y][x]
+                    or t == b[y + 1][x]
+                    or t == b[y + 2][x]
+                    or t == b[y + 3][x]
+                    or t == b[y + 4][x]
+                    or t == b[y + 5][x] if y + 5 < len(b) else None  # Added boundary check
+            ):
+                pass
+            else:
+                result = False
         if result:
             print(y, x)
