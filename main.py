@@ -51,7 +51,7 @@ for y in range(35):
                     or t == b[y + 2][x]
                     or t == b[y + 3][x]
                     or t == b[y + 4][x]
-                    or t == b[y + 5][x] if y + 5 < len(b) else None  # Added boundary check
+                    or t == b[y + 5][x] if y + 5 < len(b) else None
             ):
                 pass
             else:
